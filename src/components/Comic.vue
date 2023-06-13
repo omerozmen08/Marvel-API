@@ -7,6 +7,7 @@
   <div class="column" >
     <h2 class="pStyle">{{ char.title }}</h2><br>
    <p class="pStyle">{{ char.description }}</p> 
+   
    <!-- <p class="pStyle">{{ char.creators }}</p>  -->
   </div>
 </div>

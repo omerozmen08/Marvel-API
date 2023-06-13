@@ -28,7 +28,6 @@ export default {
 	min-height: 500px;
 	width: 100%;
 	background-color: #111111;
-    background-image: url(https://somanath-goudar.github.io/html-css-projects/netflix-clone/images/banner.jpg);
 	color: white;
 	font-size: 20px;
 	display: flex;

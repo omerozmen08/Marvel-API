@@ -4,7 +4,7 @@
         <div class="carousel__item"> 
           <router-link :to="{name:'comic',params:{id:comic.id}}"> <img :src=comic.thumbnail.path+url class="imgStyle"></router-link>
           <router-link :to="{name:'comic',params:{id:comic.id}}"> <h4 class="textStyle"><b>{{ comic.title }}</b></h4></router-link>
-        </div>          
+        </div>   
     </slide>
       <template #addons>
         <navigation />
