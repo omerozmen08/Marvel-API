@@ -32,13 +32,11 @@
 
 <script>
 // @ is an alias to /src
-import Nav from  '@/components/Nav.vue';
 import Slider from '@/components/Slider.vue';
 import Comics from '@/components/Comics.vue';
 export default {
   name: 'HomeView',
   components: {
-    Nav,
     Slider,
     Comics
   }

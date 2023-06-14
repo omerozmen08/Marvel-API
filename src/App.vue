@@ -1,9 +1,22 @@
 <template>
-
+ <!-- <Nav></Nav> -->
   <router-view/>
 </template>
-
+<script>
+// @ is an alias to /src
+// import Nav from  '@/components/Nav.vue';
+export default {
+  name: 'App',
+  components: {
+    // Nav,
+  }
+} 
+</script>
 <style>
+
+.row{
+  margin-top:4%
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

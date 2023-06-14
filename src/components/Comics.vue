@@ -68,7 +68,8 @@ export default {
 }
 
 .carousel__slide {
-	padding: 10px;
+	padding-right: 10px;
+    padding-left: 10px;
   width: 12%!important;
 }
 

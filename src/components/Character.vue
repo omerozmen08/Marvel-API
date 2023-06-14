@@ -1,17 +1,18 @@
 <template >
   <Nav></Nav>
     <!-- <p>{{ this.$route.params.id }}</p> --> 
- <div class="row" v-for="char in comics" >
+ <div class="row" v-for="char in character" >
   <div class="column" >
     <img :src="url" class="imgStyle">
   </div>
   <div class="column" >
-    <h2 class="pStyle">{{ char.title }}</h2><br>
+    <h2 class="pStyle">{{ char.name }}</h2><br>
    <p class="pStyle">{{ char.description }}</p> 
    
    <!-- <p class="pStyle">{{ char.creators }}</p>  -->
   </div>
 </div>
+
 <div class="buttons">
   <router-link  :to="{name:'comics'}" class="btnStyle">BACK</router-link>
 </div>
@@ -26,28 +27,28 @@ import Nav from  '@/components/Nav.vue'
 import { public_key } from '@/marvel';
 import axios  from 'axios';
 export default {
-    name:'Comic',
+    name:'Character',
     components:{
       Nav
     },
     data(){
 	return{
-		comics:[],
+		character:[],
         url:'',
       
 	}
    },
   mounted(){
-	this.getComics();
+	this.getCharacters();
   },
 methods: {
-    getComics:function(){
-        var comicId=this.$route.params.id
-        axios.get(`http://gateway.marvel.com/v1/public/comics/${comicId}?apikey=${public_key}`)
+    getCharacters:function(){
+        var characterId=this.$route.params.id
+        axios.get(`http://gateway.marvel.com/v1/public/characters/${characterId}?apikey=${public_key}`)
         .then((result)=>{
 		result.data.data.results.forEach((item) => {
 			console.log(item);
-		 	this.comics.push(item); 
+		 	this.character.push(item); 
             this.url=`${item.thumbnail.path}${".jpg"}`
             console.log(this.url)
 	      })
@@ -70,6 +71,7 @@ methods: {
   content: "";
   display: table;
   clear: both;
+  margin-bottom: 10%;
 }
 .column {
   float: left;
