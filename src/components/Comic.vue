@@ -126,6 +126,23 @@ methods: {
   height: 100%;
 width: 100%;
 }
+.buttons {
+  position: absolute;
+  z-index: 3;
+  top: 1em;
+  left: 50%;
+  width: 10em;
+  margin-left: -5em;
+  height: 2em;
+  line-height: 2em;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  animation: button 8s linear;
+  margin-top: 37rem;
+}
 }
 .btnStyle{
 	border: solid 1px white;

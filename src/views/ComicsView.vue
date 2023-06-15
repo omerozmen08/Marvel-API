@@ -1,7 +1,7 @@
 <template>
   <Slider></Slider>
 <h2 class="headerStyle"> MY FAVORITE LIST</h2>
-<Comics></Comics>
+<FavList></FavList>
 <h2 class="headerStyle">COMICS</h2>
 <Comics></Comics>
 <h2 class="headerStyle">CHARACTERS</h2>
@@ -14,13 +14,15 @@ import Slider from '@/components/Slider.vue';
 import Comics from '@/components/Comics.vue';
 import Characters from '@/components/Characters.vue';
 import Nav from  '@/components/Nav.vue'
+import FavList from '@/components/FavList.vue';
 export default {
   name: 'ComicsView',
   components: {
     Nav,
     Slider,
     Comics,
-    Characters
+    Characters,
+    FavList
   }
 } 
 </script>
@@ -51,12 +53,17 @@ color:white
     justify-content: center;
     align-items: center;
     position: absolute;
-    COLOR: white;
+    color: white !important;;
     border: 0;
     cursor: pointer;
     margin: 0 10px;
     top: 50%;
     transform: translateY(-50%);
 }
+.carousel__prev:hover, .carousel__next:hover {
+    color: #ffffff!important;
+}
+
+
 
 </style>

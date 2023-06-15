@@ -2,9 +2,13 @@
 <carousel :settings="settings" :breakpoints="breakpoints" class="crStyle"> 
       <slide v-for="comic in comics" :key="slide">
         <div class="carousel__item"> 
+          <div style="height: 410px;">
           <router-link :to="{name:'comic',params:{id:comic.id}}"> <img :src=comic.thumbnail.path+url class="imgStyle"></router-link>
           <router-link :to="{name:'comic',params:{id:comic.id}}"> <h4 class="textStyle"><b>{{ comic.title }}</b></h4></router-link>
-        </div>   
+        </div> 
+          <button id="favBtn"   @click="addFavorite(comic)"><img  id="favId" src="../assets/star.png" height="32"><span id="favSpan">Favorite</span></button>
+
+      </div>
     </slide>
       <template #addons>
         <navigation />
@@ -25,6 +29,7 @@ export default {
     Pagination,
     Navigation,
   },
+
    data(){
 	return{
 		comics:[],
@@ -32,10 +37,18 @@ export default {
         size:'standart_large.jpg',
 	}
    },
+   computed:{
+    favorites(){
+     return this.$store.state.favorites.favoritesState;
+    }
+  },
   mounted(){
 	this.getComics();
   },
   methods:{
+    addFavorite(favorite){
+        this.$store.dispatch("favorites/addFavorite",favorite);
+        },
  getComics:function(){
  
 	axios.get(`http://gateway.marvel.com/v1/public/comics?apikey=${public_key}`)
@@ -58,9 +71,9 @@ export default {
 </script>
 
 <style scoped>
+
 .carousel__item {
     object-fit: contain;
-    margin-right: 10px;
     transition: transform 450ms;
     height: 100%;
     background-repeat: round;
@@ -68,9 +81,10 @@ export default {
 }
 
 .carousel__slide {
-	padding-right: 10px;
-    padding-left: 10px;
-  width: 12%!important;
+    width: 12%!important;
+    margin-left: 1%;
+    border: solid 1px #ffffff3b;
+    padding-bottom: 1%;
 }
 
 .carousel__prev,
@@ -127,4 +141,14 @@ export default {
   width: 100%!important;
 }
 }
+</style>
+<style>
+#favBtn{
+  background-color: transparent;
+    border-color: transparent;
+    color: #ffc107;
+    border: solid 1px #ffc10747;
+    padding: 4%;
+}
+
 </style>
