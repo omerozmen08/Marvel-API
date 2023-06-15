@@ -1,14 +1,14 @@
 <template>
- <!-- <Nav></Nav> -->
+   <Nav></Nav>
   <router-view/>
 </template>
 <script>
 // @ is an alias to /src
-// import Nav from  '@/components/Nav.vue';
+import Nav from  '@/components/Nav.vue';
 export default {
   name: 'App',
   components: {
-    // Nav,
+    Nav,
   }
 } 
 </script>

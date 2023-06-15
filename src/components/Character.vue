@@ -1,5 +1,4 @@
 <template >
-  <Nav></Nav>
     <!-- <p>{{ this.$route.params.id }}</p> --> 
  <div class="row" v-for="char in character" >
   <div class="column" >

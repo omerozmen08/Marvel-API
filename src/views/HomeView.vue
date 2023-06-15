@@ -43,6 +43,7 @@ export default {
 } 
 </script>
 <style scoped>
+
 .headerStyle{
 text-align: left;
 color:white

@@ -1,5 +1,4 @@
 <template>
-<Nav></Nav>
   <Slider></Slider>
 <h2 class="headerStyle"> MY FAVORITE LIST</h2>
 <Comics></Comics>
