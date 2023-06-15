@@ -2,8 +2,11 @@
     <carousel :settings="settings" :breakpoints="breakpoints" class="crStyle"> 
           <slide v-for="character in characters" :key="slide">
             <div class="carousel__item"> 
+              <div style="height: 410px;">
               <router-link :to="{name:'character',params:{id:character.id}}"> <img :src=character.thumbnail.path+url class="imgStyle"></router-link>
               <router-link :to="{name:'character',params:{id:character.id}}"> <h4 class="textStyle"><b>{{ character.name }}</b></h4></router-link>
+            </div>
+            <button id="favBtn"   @click="addFavorite(comic)"><img  id="favId" src="../assets/star.png" height="32"><span id="favSpan">Favorite</span></button>
             </div>   
         </slide>
           <template #addons>
@@ -36,6 +39,9 @@
         this.getCharacters();
       },
       methods:{
+        addFavorite(favorite){
+        this.$store.dispatch("favorites/addFavorite",favorite);
+        },
         getCharacters:function(){
      
         axios.get(`http://gateway.marvel.com/v1/public/characters?apikey=${public_key}`)
@@ -59,8 +65,7 @@
     
     <style scoped>
     .carousel__item {
-        object-fit: contain;
-        margin-right: 10px;
+        object-fit: contain;  
         transition: transform 450ms;
         height: 100%;
         background-repeat: round;
@@ -68,10 +73,11 @@
     }
     
     .carousel__slide {
-      padding-right: 10px;
-    padding-left: 10px;
-      width: 12%!important;
-    }
+    width: 12%!important;
+    margin-left: 1%;
+    border: solid 1px #ffffff3b; 
+       padding-bottom: 1%;
+}
     
     .carousel__prev,
     .carousel__next {
